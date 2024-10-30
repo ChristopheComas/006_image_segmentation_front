@@ -1,8 +1,8 @@
 name: Build Docker Image
 on:
   push:
-      paths-ignore:
-      - '.github/workflows/**'
+   #   paths-ignore:
+   #   - '.github/workflows/**'
       branches:
       - main
 
