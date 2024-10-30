@@ -23,7 +23,7 @@ jobs:
           id: build-docker-image
           run: |
             ls -la 
-            docker build . -f Dockerfile -t ${{secrets.DOCKERHUB_USERNAME}}/apiv6:latest
+            docker build . -f Dockerfile -t christo66/apiv6:latest
         - name: push the docker image
           id: push-docker-image
-          run: docker push ${{secrets.DOCKERHUB_USERNAME}}/apiv6:latest
+          run: docker push christo66/apiv6:latest
