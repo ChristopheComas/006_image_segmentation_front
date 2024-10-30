@@ -1,10 +1,11 @@
 name: Build Docker Image
 on:
   push:
-    branches:
-      - main
-  paths-ignore:
+      paths-ignore:
       - '.github/workflows/**'
+      branches:
+      - main
+
 jobs:
     build:
       name: push docker image to docker hub
