@@ -1,0 +1,7 @@
+fastapi
+pillow
+numpy
+tensorflow-cpu
+uvicorn
+segmentation-models
+python-multipart
