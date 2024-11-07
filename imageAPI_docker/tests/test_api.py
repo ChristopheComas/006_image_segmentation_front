@@ -26,4 +26,4 @@ def test_postprocess_mask():
     mask = postprocess_mask(dummy_prediction)
 
     # Check the mask shape after squeezing
-    assert mask.shape == (512, 512, 8)  # (height, width, classes)
+    assert mask.shape == (512, 512)  # (height, width, classes)
