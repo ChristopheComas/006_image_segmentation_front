@@ -8,22 +8,37 @@ on:
 
 jobs:
     build:
+
+     
       name: push docker image to docker hub
       runs-on: ubuntu-latest
       steps:
-        - uses: actions/checkout@v2
-        - name: login to docker hub
-          id: docker-hub
-          env:
-            username: ${{secrets.DOCKERHUB_USERNAME}}
-            password: ${{secrets.DOCKERHUB_PASSWORD}}
-          run: |
-            docker login -u $username -p $password 
-        - name: build the docker image
-          id: build-docker-image
-          run: |
-            ls -la 
-            docker build . -f imageAPI_docker/Dockerfile -t christo66/apiv6:latest
-        - name: push the docker image
-          id: push-docker-image
-          run: docker push christo66/apiv6:latest
+      - uses: actions/checkout@v2
+
+      - name: Set up Python version
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      
+      - name: Install unitary tests dependencies
+        run: pip install pytest pillow numpy
+        
+      - name: Run tests
+        run: pytest -s
+        
+      - name: login to docker hub
+        id: docker-hub
+        env:
+          username: ${{secrets.DOCKERHUB_USERNAME}}
+          password: ${{secrets.DOCKERHUB_PASSWORD}}
+        run: |
+          docker login -u $username -p $password 
+      
+      - name: build the docker image
+        id: build-docker-image
+        run: |
+          ls -la 
+          docker build . -f imageAPI_docker/Dockerfile -t christo66/apiv6:latest
+      - name: push the docker image
+        id: push-docker-image
+        run: docker push christo66/apiv6:latest
