@@ -1,8 +1,6 @@
 import pytest
 import numpy as np
 from PIL import Image
-from io import BytesIO
-from fastapi import FastAPI, File, UploadFile
 from utils import preprocess_image, postprocess_mask  # Only import these two functions
 
 # Test preprocess_image function
