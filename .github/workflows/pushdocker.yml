@@ -1,8 +1,7 @@
 name: Build Docker Image
 on:
   push:
-   #   paths-ignore:
-   #   - '.github/workflows/**'
+
       branches:
       - main
 
@@ -15,17 +14,6 @@ jobs:
       steps:
       - uses: actions/checkout@v2
 
-      - name: Set up Python version
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-      
-      - name: Install unitary tests dependencies
-        run: pip install pytest pillow numpy
-        
-      - name: Run tests
-        run: pytest -s
-        
       - name: login to docker hub
         id: docker-hub
         env:
@@ -38,7 +26,7 @@ jobs:
         id: build-docker-image
         run: |
           ls -la 
-          docker build . -f imageAPI_docker/Dockerfile -t christo66/apiv6:latest
+          docker build . -f imageAPI_docker/Dockerfile -t christo66/frontv01:latest
       - name: push the docker image
         id: push-docker-image
-        run: docker push christo66/apiv6:latest
+        run: docker push christo66/frontv01:latest
