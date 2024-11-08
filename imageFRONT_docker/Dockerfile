@@ -5,7 +5,7 @@ FROM python:3.12
 WORKDIR /app
 
 # Copy the requirements file to the container
-COPY requirements.txt .
+COPY imageFRONT_docker/requirements.txt .
 
 # Install dependencies
 RUN pip install --no-cache-dir --upgrade pip && \
