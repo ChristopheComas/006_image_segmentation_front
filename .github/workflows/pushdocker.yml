@@ -7,7 +7,6 @@ on:
 
 jobs:
     build:
-
      
       name: push docker image to docker hub
       runs-on: ubuntu-latest
