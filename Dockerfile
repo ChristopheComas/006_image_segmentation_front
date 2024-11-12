@@ -5,13 +5,17 @@ FROM python:3.12
 WORKDIR /app
 
 # Copy the requirements file to the container
-COPY imageFRONT_docker/requirements.txt .
+# COPY imageFRONT_docker/requirements.txt .
+
+COPY requirements.txt .
 
 # Install dependencies
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
 
 # Copy the rest of the application code to the container
+# COPY imageFRONT_docker/ .
+
 COPY . .
 
 # Expose the port FastAPI runs on
