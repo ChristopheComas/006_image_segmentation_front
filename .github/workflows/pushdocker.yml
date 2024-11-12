@@ -25,7 +25,7 @@ jobs:
         id: build-docker-image
         run: |
           ls -la 
-          docker build . -f imageFRONT_docker/Dockerfile -t christo66/frontv01:latest
+          docker build . -t christo66/front_seg:v1
       - name: push the docker image
         id: push-docker-image
-        run: docker push christo66/frontv01:latest
+        run: docker push christo66/front_seg:v1
