@@ -22,7 +22,7 @@ jobs:
           docker login -u $username -p $password 
       
       - name: build the docker image
-        id: build-docker-image
+        id: build-docker-image 
         run: |
           ls -la 
           docker build . -t christo66/front_seg:v1

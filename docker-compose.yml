@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  api:
+    image: christo66/api_seg:latest  # Your pre-built API image from Docker Hub
+    ports:
+      - "8000:8000"
+    networks:
+      - mynetwork
+
+  front:
+    image: christo66/front_seg_local:latest  # Your pre-built API image from Docker Hub
+    ports:
+      - "8501:8501"
+    networks:
+      - mynetwork
+    environment:
+      - API_URL=http://api:8000  # Define the API URL as an environment variable
+
+networks:
+  mynetwork:
+    driver: bridge
